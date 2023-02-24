@@ -9,11 +9,6 @@ namespace StudentWebAPIs.Controllers
     [ApiController]
     [Route("api/[controller]")]
 
-
-
-
-
-
     public class InstructorController : Controller
     {
         public readonly IInstructorRepository _instructorRepository;
