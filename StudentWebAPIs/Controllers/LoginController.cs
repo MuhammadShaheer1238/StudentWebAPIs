@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using StudentWebAPIs.Model.DTOs;
+using StudentWebAPIs.Repository;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -8,49 +9,33 @@ using System.Text;
 namespace StudentWebAPIs.Controllers
 {
     [ApiController]
-    [Route("appi/[controller]")]
+    [Route("api/[controller]")]
     public class LoginController : Controller
     {
-        public LoginController(IConfiguration configuration)
+        public ITokenGeneratorRepository _tokenGenerator { get; }
+        public IUserRepository _userRepository { get; }
+        public LoginController(ITokenGeneratorRepository tokenGenerator, IUserRepository userRepository)
         {
-            Configuration = configuration;
+
+            _tokenGenerator = tokenGenerator;
+            _userRepository = userRepository;
         }
 
-        public IConfiguration Configuration { get; }
 
-        //[HttpPost, Route("login")]
-        //public IActionResult Login(LoginRequestModel loginDTO)
-        //{
-        //    try
-        //    {
-        //        if (string.IsNullOrEmpty(loginDTO.userName) ||
-        //        string.IsNullOrEmpty(loginDTO.Password))
-        //            return BadRequest("Username and/or Password not specified");
-        //        if (loginDTO.userName.Equals("joydip") &&
-        //        loginDTO.Password.Equals("joydip123"))
-        //        {
-        //            var secretKey = new SymmetricSecurityKey
-        //            (Encoding.UTF8.GetBytes(Configuration["Jwt:Key"]));
-        //            var signinCredentials = new SigningCredentials
-        //           (secretKey, SecurityAlgorithms.HmacSha256);
-        //            var jwtSecurityToken = new JwtSecurityToken(
-        //                Configuration["Jwt:Issuer"],
-        //                Configuration["Jwt:Audience"],
-        //                claims: new List<Claim>(),
-        //                expires: DateTime.Now.AddMinutes(10),
-        //                signingCredentials: signinCredentials
-        //            );
-        //            Ok(new JwtSecurityTokenHandler().
-        //            WriteToken(jwtSecurityToken));
-        //        }
-        //    }
-        //    catch
-        //    {
-        //        return BadRequest
-        //        ("An error occurred in generating the token");
-        //    }
-        //    return Unauthorized();
-        //}
+        [HttpPost, Route("login")]
+        public async Task<IActionResult> Login(LoginRequestModel loginDTO)
+        {
+            var user = await _userRepository.AuthenticateUser(loginDTO.userName, loginDTO.Password);
+
+            if(user != null)
+            {
+                var token = await _tokenGenerator.GenerateToken(user);
+
+                return Ok(token);
+            }
+
+            return BadRequest("username or password is incorrect");
+        }
     }
 }
 

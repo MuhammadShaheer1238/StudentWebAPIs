@@ -166,3 +166,4 @@ D:\std\StudentWebAPIs\obj\Debug\net6.0\refint\StudentWebAPIs.dll
 D:\std\StudentWebAPIs\obj\Debug\net6.0\StudentWebAPIs.pdb
 D:\std\StudentWebAPIs\obj\Debug\net6.0\StudentWebAPIs.genruntimeconfig.cache
 D:\std\StudentWebAPIs\obj\Debug\net6.0\ref\StudentWebAPIs.dll
+D:\std\StudentWebAPIs\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

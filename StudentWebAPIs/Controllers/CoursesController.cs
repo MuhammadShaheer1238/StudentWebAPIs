@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using StudentWebAPIs.Model.Domain;
@@ -7,6 +8,7 @@ using StudentWebAPIs.Repository;
 
 namespace StudentWebAPIs.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class CoursesController : Controller
