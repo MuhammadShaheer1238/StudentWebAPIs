@@ -8,8 +8,5 @@ namespace StudentWebAPIs.Model.DTOs
         public string? CourseCode { get; set; }
         public Guid InstructorId { get; set; }
 
-        ////Navigation property 
-
-        public Instructors? Instructors { get; set; }
     }
 }

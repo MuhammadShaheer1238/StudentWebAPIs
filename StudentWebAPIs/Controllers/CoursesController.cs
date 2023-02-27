@@ -97,6 +97,7 @@ namespace StudentWebAPIs.Controllers
                 Id = id,
                 CourseCode = updateCoursesRequest.CourseCode,
                 CourseName = updateCoursesRequest.CourseName,
+                InstructorId=updateCoursesRequest.InstructorId
             };
 
 
