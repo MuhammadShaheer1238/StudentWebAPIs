@@ -8,7 +8,7 @@ using StudentWebAPIs.Repository;
 
 namespace StudentWebAPIs.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Admin")]
     [ApiController]
     [Route("api/[controller]")]
     public class CoursesController : Controller

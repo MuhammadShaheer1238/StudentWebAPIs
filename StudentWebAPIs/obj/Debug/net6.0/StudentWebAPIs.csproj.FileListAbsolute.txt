@@ -94,6 +94,7 @@ D:\std\StudentWebAPIs\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.Dependenc
 D:\std\StudentWebAPIs\bin\Debug\net6.0\Azure.Core.dll
 D:\std\StudentWebAPIs\bin\Debug\net6.0\Azure.Identity.dll
 D:\std\StudentWebAPIs\bin\Debug\net6.0\Humanizer.dll
+D:\std\StudentWebAPIs\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\std\StudentWebAPIs\bin\Debug\net6.0\Microsoft.Bcl.AsyncInterfaces.dll
 D:\std\StudentWebAPIs\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 D:\std\StudentWebAPIs\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
@@ -166,4 +167,3 @@ D:\std\StudentWebAPIs\obj\Debug\net6.0\refint\StudentWebAPIs.dll
 D:\std\StudentWebAPIs\obj\Debug\net6.0\StudentWebAPIs.pdb
 D:\std\StudentWebAPIs\obj\Debug\net6.0\StudentWebAPIs.genruntimeconfig.cache
 D:\std\StudentWebAPIs\obj\Debug\net6.0\ref\StudentWebAPIs.dll
-D:\std\StudentWebAPIs\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll

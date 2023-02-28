@@ -27,14 +27,17 @@ namespace StudentWebAPIs.Repository
             claims.Add(new Claim(ClaimTypes.GivenName, user.firstName));
             claims.Add(new Claim(ClaimTypes.Surname, user.lastName));
             claims.Add(new Claim(ClaimTypes.Email, user.Email));
+            
 
             // iterating through roles and adding them 
+            
+            
             user.Roles.ForEach((role) =>
             {
                 claims.Add(new Claim(ClaimTypes.Role, role));
 
             });
-
+            
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var token = new JwtSecurityToken(
                 _configuration["Jwt:Issuer"],
@@ -45,6 +48,10 @@ namespace StudentWebAPIs.Repository
 
             var tokenGenerated = new JwtSecurityTokenHandler().WriteToken(token);
             return tokenGenerated.ToString();
+            
+            //string Message = "You ar not authorized";
+            //return Message;
+            
         }
     }
 }

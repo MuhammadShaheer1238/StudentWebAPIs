@@ -2,6 +2,7 @@
 {
     public class UserRoles
     {
+
         public int Id { get; set; }
 
         public Guid userId { get; set; }

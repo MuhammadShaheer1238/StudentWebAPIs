@@ -15,6 +15,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+
 // using swagger for authentication
 builder.Services.AddSwaggerGen(options =>
 {
@@ -66,6 +67,13 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         ValidAudience = builder.Configuration["Jwt:Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     });
+
+
+//builder.Services.AddAuthorization(options =>
+//{
+//    options.AddPolicy("RequireAdminRole", policy =>
+//        policy.RequireClaim("Roles", "Admin"));
+//});
 
 
 var app = builder.Build();

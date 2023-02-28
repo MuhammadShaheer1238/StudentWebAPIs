@@ -32,6 +32,7 @@ namespace StudentWebAPIs.Controllers
                 var token = await _tokenGenerator.GenerateToken(user);
 
                 return Ok(token);
+                
             }
 
             return BadRequest("username or password is incorrect");
