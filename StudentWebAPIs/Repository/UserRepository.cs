@@ -14,7 +14,11 @@ namespace StudentWebAPIs.Repository
 
         public async Task<User> AuthenticateUser(string username, string password)
         {
-            var userExist = await _dbContext.users.FirstOrDefaultAsync(x => x.userName.ToLower().Trim() == username.ToLower().Trim());
+            var userExist = await _dbContext.users.FirstOrDefaultAsync(x => x.userName.ToLower().Trim() == username.ToLower().Trim() && x.Password == password);
+            //if(userExist != null)
+            //{
+            //    var verifyPassword = await _dbContext.users.FirstOrDefaultAsync(x => x.Password.ToLower().Trim() == password.ToLower().Trim());
+            //}
             
             var userRoles = await _dbContext.UserRoles.Where(x=> x.userId == userExist.Id).ToListAsync();
             if (userRoles.Any())

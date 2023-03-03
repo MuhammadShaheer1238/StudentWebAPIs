@@ -43,7 +43,7 @@ namespace StudentWebAPIs.Repository
                 _configuration["Jwt:Issuer"],
                 _configuration["Jwt:Audience"],
                 claims,
-                expires: DateTime.Now.AddMinutes(15),
+                expires: DateTime.Now.AddMinutes(10),
                 signingCredentials: credentials);
 
             var tokenGenerated = new JwtSecurityTokenHandler().WriteToken(token);
